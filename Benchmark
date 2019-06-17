@@ -1,0 +1,42 @@
+1. Create a chan at each level for each url
+    [monzo.com, depth == 5]
+        Crawler took:  20.420883524s
+
+        Metric aggregation took:  71.768µs 
+        Stats: LOADED = 1090 LOADING = 0 ERROR = 0
+        
+        Writing the url sitemap tree structure took:  816.56044ms
+
+    ["https://golang.org", "https://google.com", "https://monzo.com", "https://facebook.com", "https://wiki.com"]
+        Crawler took:  18.07128834s
+
+        Metric aggregation took:  48.4µs 
+        Stats: LOADED = 1086 LOADING = 0 ERROR = 0
+
+        Writing the url sitemap tree structure took:  574.99948ms
+    
+    https://golang.com iteration:  0 8.540841925s
+    https://golang.com iteration:  1 7.372549593s
+    https://golang.com iteration:  2 5.602531447s
+    https://golang.com iteration:  3 5.57552908s
+    https://golang.com iteration:  4 10.64438366s
+    https://golang.com iteration:  5 5.44573464s
+    https://golang.com iteration:  6 4.58456448s
+    https://golang.com iteration:  7 5.39997139s
+    https://golang.com iteration:  8 13.228684727s
+    https://golang.com iteration:  9 5.91902928s
+    goos: darwin
+    goarch: amd64
+    BenchmarkCrawlerIterations-4   	       1	72314424017 ns/op	380327312 B/op	 3995316 allocs/op
+    PASS
+    ok  	_/Users/alchemist/Desktop/Go/src/Monzo	72.330s
+
+
+2. Using waitgroup and spawning a go thread at each level for each url
+    [monzo.com, depth == 5]
+        Crawler took:  10.386665728s
+
+        Metric aggregation took:  127.163µs 
+        Stats: LOADED = 1041 LOADING = 0 ERROR = 0
+
+        Writing the url sitemap tree structure took:  554.274163ms
